@@ -5,7 +5,7 @@
 import { addRoute, Components } from 'meteor/vulcan:core';
 
 // Then, we add the component for what we want to add.
-import '../components/movies/MoviesList.jsx';
+import '../components/Page.jsx'
 
 // Next, we add the name 'movies', the path, which is the root, and the component name 'MovieList'. 
-addRoute({ name: 'movies', path: '/', componentName: 'MoviesList' });
+addRoute({ name: 'movies', path: '/', componentName: 'Page' });

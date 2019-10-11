@@ -12,7 +12,7 @@ This component is a React component. We only have one but it does a bunch of thi
 
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Components, withMulti, withCurrentUser, registerComponent } from 'meteor/vulcan:core';
+import { Components, withMulti, withCurrentUser, registerComponent, withCreate } from 'meteor/vulcan:core';
 
 import Movies from '../../modules/movies/collection.js';
 import { parseTwoDigitYear } from 'moment';
@@ -84,14 +84,11 @@ class MoviesList extends React.Component {
             
             {/* documents list - this is another small utility in Vulcan and it will display it as a card... */}
             
-            {this.props.results.map(movie => (
-              <Components.Card
-                fields={["name", "year", "review"]}
-                key={movie._id}
-                collection={Movies}
-                document={movie}
-                currentUser={this.props.currentUser}
-              />
+            
+            {this.props.results.length != 0 && this.props.results.map(movie => ( 
+            <div key={movie._id}>
+              {movie.name} - {movie.year}: {movie.review}
+            </div>
             ))}
 
             {/* load more - this is the load more button. On click we trigger the loadMore function which is passed as a prop by withList... */}

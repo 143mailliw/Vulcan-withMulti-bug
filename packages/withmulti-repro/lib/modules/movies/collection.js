@@ -77,6 +77,18 @@ Movies.addDefaultView(terms => ({
   }
 }));
 
+Movies.addView('byNameView', terms => ({
+  selector: {
+    name: terms.name
+  },
+  options: {
+    sort: {
+      //put the newest at the bottom
+      createdAt: 1 
+    }
+  }
+}));
+
 export default Movies;
 
 // There were three things I mentioned that you might not have heard of:
